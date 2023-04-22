@@ -1,11 +1,10 @@
-"""LU base component - based on 00_LU_base_v2
-Adding instructions to instructions function and further text decoration
-"""
+"""Lucky Unicorn - Final Version."""
 import random
 
 
 # Yes/No checking function
 def yes_no(question_text):
+    """Make sure the user can only answer 'Yes' or 'No' to continue."""
     while True:
 
         # Ask the user if they have played before
@@ -30,13 +29,15 @@ def yes_no(question_text):
 
 # Function to display instructions
 def instructions():
+    """Display instructions for first-time users to read through."""
     print()
     print("**** How To Play ****")
     print()
     print("Choose a starting amount to play with - must be between $1 and $10")
     print()
-    print("Then press <enter> to play. You will get a random token which might "
-          "be a Horse, a Zebra, a Donkey, or a Unicorn.")
+    print("Then press <enter> to play. "
+          "You will get a random token which might be "
+          "a Horse, a Zebra, a Donkey, or a Unicorn.")
     print()
     print("It costs $1 to play each round but, depending on your prize, you "
           "could win some of your money back. These are the payout amounts:\n"
@@ -53,6 +54,7 @@ def instructions():
 
 # Number checking function
 def num_check(question, low, high):
+    """Check whether the number entered is valid."""
     error = "That was not a valid input\n" \
             "Please enter a number between {} and {}\n".format(low, high)
 
@@ -75,6 +77,7 @@ def num_check(question, low, high):
 
 # Function to generate random token
 def generate_token(balance):
+    """Generate a random token between Unicorn, Horse, Zebra, and Donkey."""
     rounds_played = 0
     play_again = ""
 
@@ -121,14 +124,16 @@ def generate_token(balance):
             print("\nSorry but you have run out of money")
             play_again = "x"
         else:
-            play_again = input("\nDo you want to play another round?\n<enter> to play "
-                               "again or 'X' to exit: ").lower()
+            play_again = input("\nDo you want to play another round?\n"
+                               "<enter> to play again or 'X' to exit: "
+                               "").lower()
         print()
     return balance
 
 
 # Function to format text output
 def formatter(symbol, text):
+    """Format specific texts to stand out from other outputs."""
     sides = symbol * 3
     formatted_text = f"{sides} {text} {sides}"
     top_bottom = symbol * len(formatted_text)
